@@ -33,7 +33,27 @@ npm run dev:h5
 
 ### 上线部署
 
-H5 打包后是纯静态网站，**面试官访问不需要 Node.js 后端**。只有你自己更新简历时才需要临时启动后端。
+**Vercel 部署（推荐，免费 HTTPS 域名）**
+
+1. GitHub 仓库导入 Vercel：https://vercel.com/new
+2. 关键设置：
+
+| 配置项 | 值 |
+|--------|-----|
+| Root Directory | `uniapp` |
+| Framework Preset | Other |
+| Build Command | `npm run build:h5` |
+| Output Directory | `dist/build/h5` |
+
+3. Deploy 即可，会得到 `https://xxx.vercel.app` 域名
+
+> 查看简历走静态文件，**不需要 Node 后端**。管理页上传仍需本地启动后端。
+
+**自建服务器**
+
+1. HX 发行 → 网站-H5 → 生成 `dist/build/h5/`
+2. 上传到 Nginx 静态目录
+3. 配置 history 路由 fallback 到 `index.html`
 
 ## 配置
 
